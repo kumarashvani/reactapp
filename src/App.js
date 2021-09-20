@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import {Menu} from "./Navbar/Menu";
+import { Menu } from './Navbar/Menu';
+import { State } from './State/State';
+
 
 function App() {
   let name = "Ashvani Kumar";  
   // let b = 10;
   return (
     <>
-    <Menu/>
+    <Menu title="React App" aboutText = 'About Us'/>
+    <State/>
     <div className="App">
       <header className="App-header">
         
