@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 
+
 export const State = (props) => {
     const [addText, setText] = useState("Enter text here!")
     const handleToUppercase = ()=>{
@@ -34,9 +35,9 @@ export const State = (props) => {
         setText(e.target.value);
     }
     return (
-        <div>
-            <div className="container my-3">
-                <h2>{props.title}</h2>
+        <div className={`py-3 bg-${props.mode==='light'?'white':'dark'}`}>
+            <div className="container py-3">
+                <h2 className={`text-${props.mode==='light'?'dark':'light'}`}>{props.title}</h2>
                 <div className="mb-3">
                     <textarea className="form-control" value={addText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                     <button className="btn btn-primary my-3" onClick={handleToSentenceCase}>Sentence Case</button>
@@ -48,11 +49,11 @@ export const State = (props) => {
                 </div>
             </div>
             <div className="container">
-                <h2>Preview</h2>
-                <div className="alert alert-primary" role="alert">
+                <h2 className={`text-${props.mode==='light'?'dark':'light'}`}>Preview</h2>
+                <div className="alert alert-primary text-dark" role="alert">
                     {addText.split(" ").length} Word Count | {addText.length} Charecter Count | {0.008*addText.split(" ").length} Time Read | {addText.split('\n').length} Line
                 </div>
-                <pre>{addText}</pre>
+                <pre className={`text-${props.mode==='light'?'dark':'light'}`}>{addText.length>0?addText:'Write something in above textarea to display here!'}</pre>
             </div>
         </div>
     )

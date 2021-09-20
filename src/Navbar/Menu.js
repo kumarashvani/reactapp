@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export const Menu = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="https://ashwani.derbatech.in/"rel="noreferrer" target="_blank">{props.title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,11 +22,16 @@ export const Menu = (props) => {
                     <a className="nav-link" href="/" rel="noreferrer" target="_blank">Contact Us</a>
                     </li>
                 </ul>
+                <div className="form-check form-switch mx-3">
+                    <input className="form-check-input" onClick={props.togleMode} type="checkbox" id="flexSwitchCheckDefault"/>
+                    <label className={`form-check-label text-${props.mode==='dark'?'light':'dark'}`} htmlFor="flexSwitchCheckDefault">Enable dark mode</label>
+                </div>
                 {props.searchBar?<form className="d-flex">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>:"No search bar here!"}
                 </div>
+                
             </div>
             </nav>
     )
@@ -41,5 +46,5 @@ Menu.propTypes = {
 Menu.defaultProps = {
     title : 'Set title here!',
     aboutText: 'Set about link here!',
-    searchBar:false,
+    searchBar:true,
 }
