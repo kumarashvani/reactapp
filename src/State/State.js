@@ -7,14 +7,17 @@ export const State = (props) => {
         // console.log("Handle On clicked");
         let newText = addText.toUpperCase();
         setText(newText);
+        props.showAlert('Uppercase mode has been enabled', "success");
     }
     const handleTolowercase = ()=>{
         let newText = addText.toLowerCase();
         setText(newText);
+        props.showAlert('Lowercase mode has been enabled', "success");
     }
     const handleToSentenceCase = ()=>{
         let newText = addText.charAt(0).toUpperCase()+addText.slice(1);
         setText(newText);
+        props.showAlert('Sentance mode has been enabled', "success");
     }
     // const handleToCaptaliaze = ()=>{
     //     let newText = addText.split(" ").charAt(0).toUpperCase();
@@ -24,11 +27,13 @@ export const State = (props) => {
         // setText(e.target.value = ''); This will also work to empty element
         let newText = '';
         setText(newText);
+        props.showAlert('Empty mode has been enabled', "success");
     }
     const handleToCopy = ()=>{
         let text = document.getElementById('myBox');
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert('Copied to Clipboard', "success");
     }
     const handleOnChange = (e)=>{
         // console.log('On Change Clicked!');

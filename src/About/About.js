@@ -18,6 +18,7 @@ export const About = (props) => {
                 border:'1px solid #fff',
             });
             setTextMode('Disable dark mode');
+            props.showAlert('Dark mode has been enables','success');
         } else {
             setMyStyle({
                 color:'#333',
@@ -25,6 +26,7 @@ export const About = (props) => {
                 border:'1px solid #ddd',
             });
             setTextMode('Enable dark mode');
+            props.showAlert('Light mode has been enables','success');
         }
     }
 
