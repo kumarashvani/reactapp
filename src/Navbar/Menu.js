@@ -1,6 +1,6 @@
 import React from 'react';
-import './Menu.css'
-import PropTypes from 'prop-types'
+import './Menu.css';
+import PropTypes from 'prop-types';
 
 export const Menu = (props) => {
     return (

@@ -24,6 +24,11 @@ export const State = (props) => {
         let newText = '';
         setText(newText);
     }
+    const handleToCopy = ()=>{
+        let text = document.getElementById('myBox');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
     const handleOnChange = (e)=>{
         // console.log('On Change Clicked!');
         setText(e.target.value);
@@ -33,12 +38,13 @@ export const State = (props) => {
             <div className="container my-3">
                 <h2>{props.title}</h2>
                 <div className="mb-3">
-                    <textarea className="form-control" value={addText} onChange={handleOnChange} rows="8"></textarea>
+                    <textarea className="form-control" value={addText} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                     <button className="btn btn-primary my-3" onClick={handleToSentenceCase}>Sentence Case</button>
                     <button className="btn btn-primary my-3 mx-3" onClick={handleToUppercase}>Uppercase</button>
                     <button className="btn btn-primary my-3" onClick={handleTolowercase}>Lowercase</button>
                     {/* <button className="btn btn-primary my-3 mx-3" onClick={handleToCaptaliaze}>Captaliaze Case</button> */}
                     <button className="btn btn-primary my-3 mx-3" onClick={handleToEmpty}>Empty Form</button>
+                    <button className="btn btn-primary my-3" onClick={handleToCopy}>Copy Text</button>
                 </div>
             </div>
             <div className="container">
