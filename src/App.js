@@ -6,6 +6,8 @@ import { About } from './About/About';
 import { Home } from './Home/Home';
 import React, { useState } from 'react'
 import { Alert } from './Alert/Alert';
+import {  BrowserRouter as Router,  Switch,  Route } from "react-router-dom";
+
 
 function App() {
 
@@ -36,11 +38,21 @@ function App() {
 
   return (
     <>
+    <Router>
     <Menu title="React App" aboutText = 'About Us' mode={mode} togleMode={togleMode}/>
     <Alert alert={alert}/>
-    <Home/>
-    <State mode={mode} showAlert={showAlert}/>
-    <About mode={mode} showAlert={showAlert}/>
+    <Switch>
+        <Route path="/about">
+          <About mode={mode} showAlert={showAlert}/>
+        </Route>
+        <Route path="/state">
+          <State mode={mode} showAlert={showAlert}/>
+        </Route>
+        <Route path="/">
+          <Home mode={mode} showAlert={showAlert}/>
+        </Route>
+    </Switch>
+    </Router>
     </>
   );
 }
